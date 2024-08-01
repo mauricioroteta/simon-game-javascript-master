@@ -11,7 +11,7 @@ const juego = () => {
     }
     const partidoEn16 = (Math.PI * 2) / 16;
     const centroX = 200, centroY = 200;
-    const radioCirculo = 200;
+    const radioCirculo = 160;
     const radioCuarto = 170;
     const radioCirculoCentral = 80;
     const distancia = 10;
