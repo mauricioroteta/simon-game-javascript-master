@@ -11,7 +11,7 @@ const juego = () => {
     }
     
     // Cantodad de intentos 
-    const intentos = 10;
+    const intentos = 5;
 
     const partidoEn16 = (Math.PI * 2) / 16;
     const centroX = 200, centroY = 200;
