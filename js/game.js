@@ -198,7 +198,7 @@ const juego = () => {
             } else {
 
                 $btnComenzar.disabled = false;
-                Swal.fire("Perdiste", `Has perdido. Tu puntuación fue de ${puntaje}. Puedes jugar de nuevo cuando quieras`);
+                Swal.fire("Perdiste", `Has perdido. Tu puntuación fue de ${puntaje}. Gracias por Jugar con La Perseverancia Seguros!`);
             }
         });
     });
@@ -210,7 +210,8 @@ const juego = () => {
                 title: "¡Ganaste!",
                 html: `
             <img class="img-fluid" src="./img/ganaste.png" alt="Ganaste">
-            <p class="h4">Muy bien hecho</p>`,
+            <p class="h4">Muy bien hecho</p>
+            <p class="h4">Gracias por jugar con Nosotros!</p>`,
                 confirmButtonAriaLabel: "Jugar de nuevo",
                 allowOutsideClick: false,
                 allowEscapeKey: false,
@@ -264,26 +265,7 @@ const juego = () => {
 
     // Función que se ejecuta cuando el jugador pierde
     const perder = () => {
-        Swal.fire({
-            title: 'Perdiste',
-            text: `Has perdido. Tu puntuación fue de ${puntaje}.`,
-            input: 'text',
-            inputPlaceholder: 'Ingresa tu nombre',
-            showCancelButton: true,
-            confirmButtonText: 'Guardar',
-            cancelButtonText: 'Cancelar',
-            preConfirm: (nombre) => {
-                if (!nombre) {
-                    Swal.showValidationMessage('El nombre es obligatorio');
-                }
-                return nombre;
-            }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                const nombreJugador = result.value;
-                guardarPuntaje(nombreJugador, puntaje);
-            }
-        });
+        Swal.fire("Perdiste", `Has perdido. Tu puntuación fue de ${puntaje}. Gracias por Jugar con La Perseverancia Seguros!`);
 
         $btnComenzar.disabled = false;
     };
