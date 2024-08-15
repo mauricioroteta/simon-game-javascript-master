@@ -9,8 +9,6 @@ const juego = () => {
         document.body.appendChild(sonido);
         return sonido;
     }
-    const intentos = 4;
-
     const partidoEn16 = (Math.PI * 2) / 16;
     const centroX = 200, centroY = 200;
     const radioCirculo = 160;
@@ -191,6 +189,7 @@ const juego = () => {
                     await sleep(500);
                     await turnoDelCpu();
                 } else {
+                    contador++;
                 }
                 puedeJugar = true;
             } else {
@@ -202,27 +201,11 @@ const juego = () => {
     });
 
     const turnoDelCpu = async () => {
-        if (puntaje == intentos){
-            //Swal.fire("GANASTE!", `Has Ganado. Llegaste a ${puntaje}. Puedes jugar de nuevo cuando quieras`);
-            Swal.fire({
-                title: "¡Ganaste!",
-                html: `
-            <img class="img-fluid" src="./img/ganaste.png" alt="Ganaste">
-            <p class="h4">Muy bien hecho</p>`,
-                confirmButtonAriaLabel: "Jugar de nuevo",
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-            })
-            reiniciar();
-            $btnComenzar.disabled = false;
-        } else
-        {
-            puedeJugar = false;
-            agregarBotonAleatorioASecuencia(secuencia);
-            await reproducirSecuencia(secuencia);
-            contador = 0;
-            puedeJugar = true;
-        }
+        puedeJugar = false;
+        agregarBotonAleatorioASecuencia(secuencia);
+        await reproducirSecuencia(secuencia);
+        contador = 0;
+        puedeJugar = true;
     }
 
     const $btnComenzar = document.querySelector("#comenzar");
