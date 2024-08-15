@@ -9,7 +9,9 @@ const juego = () => {
         document.body.appendChild(sonido);
         return sonido;
     }
-    const intentos = 4;
+    
+    // Cantodad de intentos 
+    const intentos = 10;
 
     const partidoEn16 = (Math.PI * 2) / 16;
     const centroX = 200, centroY = 200;
