@@ -36,7 +36,8 @@ const juego = () => {
         rojo = d3.color("#B71C1C"),
         amarillo = d3.color("#F9A825"),
         azul = d3.color("#0D47A1"),
-        negro = d3.color("#212121");
+        negro = d3.color("#000000");
+        LPS = d3.color("#ffd600");
 
 
     const circuloFondo = d3.arc()
@@ -60,7 +61,7 @@ const juego = () => {
         .attr("transform", `translate(${centroX},${centroY})`)
         .append("path")
         .attr("d", circuloFondo)
-        .attr("fill", negro);
+        .attr("fill", LPS);
 
 
     const superiorIzquierda = $svg.append("g")
@@ -121,14 +122,14 @@ const juego = () => {
         .attr("transform", `translate(${centroX},${centroY})`)
         .append("path")
         .attr("d", circuloCentral)
-        .attr("fill", negro);
+        .attr("fill", LPS);
 
     const textoPuntaje = $svg.append("text")
         .attr("transform", `translate(${centroX},${centroY})`)
-        .attr("fill", "#ffffff")
-        .attr("font-size", 30)
+        .attr("fill", rojo)
+        .attr("font-size", 50)
         .attr("font-weight", "bold")
-        .attr("font-family", "Courier")
+        .attr("font-family", "sans-serif")
         .style("text-anchor", "middle")
         .style("dominant-baseline", "central")
         .text("0")
