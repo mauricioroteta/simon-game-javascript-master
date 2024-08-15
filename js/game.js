@@ -124,15 +124,28 @@ const juego = () => {
         .attr("d", circuloCentral)
         .attr("fill", LPS);
 
-    const textoPuntaje = $svg.append("text")
-        .attr("transform", `translate(${centroX},${centroY})`)
+
+        /*const TextoLPS = $svg.append("text")
+        .attr("transform", `translate(${centroX},${centroY - 30})`)
         .attr("fill", rojo)
         .attr("font-size", 50)
         .attr("font-weight", "bold")
         .attr("font-family", "sans-serif")
         .style("text-anchor", "middle")
         .style("dominant-baseline", "central")
+        .text("")*/
+
+        const textoPuntaje = $svg.append("text")
+        .attr("transform", `translate(${centroX},${centroY})`)
+        .attr("fill", rojo)
+        .attr("font-size", 100)
+        .attr("font-weight", "bold")
+        //.attr("font-family", "Georgia")
+        .attr("font-family", "sans-serif")
+        .style("text-anchor", "middle")
+        .style("dominant-baseline", "central")
         .text("0")
+
     const encenderYApagarBoton = async (boton, duracion) => {
         puedeJugar = false;
         const colorActual = boton.attr("fill");
@@ -169,12 +182,14 @@ const juego = () => {
     const compararSecuenciaDeUsuarioConOriginal = (secuenciaOriginal, botonDeUsuario, indice) => {
         return compararBotones(secuenciaOriginal[indice], botonDeUsuario);
     };
+    //const refrescarlps = puntaje => TextoLPS.text(puntaje.toString());
     const refrescarPuntaje = puntaje => textoPuntaje.text(puntaje.toString());
     const reiniciar = () => {
         secuencia = [];
         puedeJugar = false;
         contador = puntaje = 0;
         refrescarPuntaje(puntaje);
+        //refrescarlps('LPS');
     }
     
 
